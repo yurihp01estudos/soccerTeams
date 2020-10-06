@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="soccerTeams.MainPage">
+    <StackLayout>
+        <Label Margin="0, 0, 0, 10"
+               Text="Firebase"
+               FontAttributes="Bold" FontSize="Large" TextColor="Gray"
+               HorizontalTextAlignment="Center" />
+        <Entry x:Name="entryNumero" Placeholder="Número" />
+        <Entry x:Name="entryNome" Placeholder="Nome" />
+        <Entry x:Name="entryTitulos" Placeholder="Títulos" />
+
+        <StackLayout Orientation="Horizontal" Margin="10" Spacing="10">
+            <Button x:Name="btnAdicionar" Text="Adicionar" Clicked="BtnAdicionarClicked" />
+            <Button x:Name="btnObter" Text="Obter" Clicked="BtnObterClicked" />
+            <Button x:Name="btnAtualizar" Text="Atualizar" Clicked="BtnAtualizarClicked" />
+            <Button x:Name="btnRemover" Text="Remover" Clicked="BtnRemoverClicked" />
+        </StackLayout>
+
+        <ListView x:Name="lstTeams">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Número:" />
+                                <Label Text="{Binding Numero}" />
+                            </StackLayout>
+                            <Label Text="{Binding Nome}" />
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Quantidade de Títulos:" />
+                                <Label Text="{Binding Titulos}" />
+                            </StackLayout>
+                        </StackLayout> 
+                    </ViewCell>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

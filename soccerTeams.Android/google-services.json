@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "116035863484",
+    "firebase_url": "https://soccer-teams-6cc28.firebaseio.com",
+    "project_id": "soccer-teams-6cc28",
+    "storage_bucket": "soccer-teams-6cc28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116035863484:android:57e57d2be7dbc6a859a1b9",
+        "android_client_info": {
+          "package_name": "com.yuri.soccerTeams"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "116035863484-01oplck3l49j909u3455ai3mfecm9q3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRi1Ptg0LAtLBZ7VSqLq2pu_hEdw8-RxE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "116035863484-01oplck3l49j909u3455ai3mfecm9q3j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "116035863484-9vqpm44rcn383afb2oaer01hvu5oes9t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yuri.soccerTeams"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
