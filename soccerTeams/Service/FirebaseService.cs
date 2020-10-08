@@ -63,25 +63,34 @@ namespace soccerTeams.Service
 
                 return null;
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 return "Time não encontrado";
             }
             
         }
 
-        public async Task ApagarTime(int numero)
+        public async Task<string> ApagarTime(int numero)
         {
-            var time = (await firebase
+            try
+            {
+                var time = (await firebase
                 .Child("Teams")
                 .OnceAsync<Team>())
                 .Where(team => team.Object.Numero == numero)
                 .FirstOrDefault();
 
-            await firebase
-                .Child("Teams")
-                .Child(time.Key)
-                .DeleteAsync();
+                await firebase
+                    .Child("Teams")
+                    .Child(time.Key)
+                    .DeleteAsync();
+
+                return null;
+            } catch(Exception)
+            {
+                return "Time não encontrado";
+            }
+            
         }
     }
 }

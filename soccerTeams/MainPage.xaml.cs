@@ -2,6 +2,8 @@
 using System.Linq;
 using Xamarin.Forms;
 using soccerTeams.Service;
+using soccerTeams.Model;
+
 namespace soccerTeams
 {
     public partial class MainPage : ContentPage
@@ -100,14 +102,41 @@ namespace soccerTeams
         {
             if (int.TryParse(entryNumero.Text, out int value))
             {
-                await firebaseService.ApagarTime(Convert.ToInt32(value));
-                await DisplayAlert("Sucesso", "Time Excluído", "Ok");
-                lstTeams.ItemsSource = await firebaseService.ObterTimes();
-            }
+                var response = await firebaseService.ApagarTime(Convert.ToInt32(value));
+
+                if (response == null)
+                {
+                    await DisplayAlert("Sucesso", "Time Excluído", "Ok");
+                    lstTeams.ItemsSource = await firebaseService.ObterTimes();
+                } else
+                {
+                    await DisplayAlert("Erro", response, "Ok");
+                }
+                
+            } else
             {
                 await DisplayAlert("Erro", "Campo Número está vazio ou valor não é número", "Ok");
             }
             clearEntries();
+        }
+
+        private void onSelection(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+            {
+                return;
+            }
+
+            var detailPage = new DetailPage
+            {
+                BindingContext = e.SelectedItem as Team
+            };
+
+            lstTeams.SelectedItem = null;
+
+            Navigation.PushModalAsync(detailPage);
+
+            
         }
 
         private void clearEntries()

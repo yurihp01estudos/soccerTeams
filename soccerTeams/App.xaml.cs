@@ -1,6 +1,5 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
+
 
 namespace soccerTeams
 {
@@ -10,7 +9,7 @@ namespace soccerTeams
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new soccerTeams.MainPage());
         }
 
         protected override void OnStart()
